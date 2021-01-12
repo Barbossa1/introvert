@@ -29,9 +29,17 @@ function getClients()
             'id' => 1,
             'name' => 'intrdev',
             'api' => '23bc075b710da43f0ffb50ff9e889aed'
-        ]
+        ],
+        [
+            'id' => 2,
+            'name' => 'artedegrass0',
+            'api' => '',
+        ],
+
     ];
 }
+
+
 
 $dateFrom = htmlspecialchars($_GET['date_from']);
 $dateTo = htmlspecialchars($_GET['date_to']);
@@ -45,7 +53,7 @@ echo '<table>' .
     '</tr>';
 
 foreach ($clients as $value) {
-    Introvert\Configuration::getDefaultConfiguration()->setApiKey('key', '23bc075b710da43f0ffb50ff9e889aed');
+    Introvert\Configuration::getDefaultConfiguration()->setApiKey('key', $value['api']);
 
     $api = new Introvert\ApiClient();
     $budget = 0;
